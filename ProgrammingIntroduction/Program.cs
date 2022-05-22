@@ -16,25 +16,12 @@
                     {
                         case 1:
                             int[] targets = GetNumArray();
-                            Console.Write("Pick a number:  ");
-                            str = Console.ReadLine();
-
-                            if (!int.TryParse(str, out i))
-                            {
-                                Console.WriteLine("Error in input [" + str + "]. Not a number");
-                                break;
-                            }
+                            i = GetNum();
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
                         case 2:
-                            Console.Write("Input a phrase to reorder:  ");
-                            str = Console.ReadLine();
-                            if (str == null)
-                            {
-                                Console.WriteLine("Error in input [" + str + "]. String is null");
-                                break;
-                            }
+                            str = GetStr("Input a phrase to reorder:  ");
                             str = StringReverse(str);
                             Console.Write("Answer:  " + str);
                             break;
@@ -44,13 +31,7 @@
                             Console.Write("Answer:  " + sum.ToString());
                             break;
                         case 4:
-                            Console.Write("Input a phrase to reorder:  ");
-                            str = Console.ReadLine();
-                            if (str == null)
-                            {
-                                Console.WriteLine("Error in input [" + str + "]. String is null");
-                                break;
-                            }
+                            str = GetStr("Input a phrase to reorder:  ");
                             str = FreqSort(str);
                             Console.Write("Answer:  " + str);
                             break;
@@ -59,26 +40,11 @@
                             int[] arrB = GetNumArray();
                             int[] intercepts = Intersect(arrA, arrB);
                             Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
-
                             break;
                         case 6:
-                            Console.Write("Input chars to add to array as 'ccccc...':  ");
-                            str = Console.ReadLine();
-                            if (str == null)
-                            {
-                                Console.WriteLine("Error in input [" + str + "]. String is null");
-                                break;
-                            }
-                            string s = str;
-                            Console.Write("Pick a number:  ");
-                            str = Console.ReadLine();
-
-                            if (!int.TryParse(str, out i))
-                            {
-                                Console.WriteLine("Error in input [" + str + "]. Not a number");
-                                break;
-                            }
-                            bool b = ContainsDuplicate(s, i);
+                            str = GetStr("Input chars to add to array as 'ccccc...':  "); 
+                            i = GetNum();
+                            bool b = ContainsDuplicate(str, i);
                             Console.Write("Answer:  " + b.ToString());
                             break;
                     }
@@ -306,6 +272,43 @@
             {
                 Console.WriteLine(ex.Message);
                 return 0;
+            }
+        }
+
+        private static int GetNum()
+        {
+            try
+            {
+                Console.Write("Pick a number:  ");
+                string? str = Console.ReadLine();
+
+                if (!int.TryParse(str, out int i))
+                {
+                    throw new Exception("Error in input [" + str + "]. Not a number");
+                }
+                return i;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        private static string GetStr(string s)
+        {
+            try
+            {
+                Console.Write(s);
+                string? str = Console.ReadLine();
+                if (str == null)
+                {
+                    throw new Exception("Error in input [" + str + "]. String is null");
+                }
+                return str;
+            }
+            catch
+            {
+                throw;
             }
         }
 

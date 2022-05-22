@@ -10,7 +10,7 @@
                 Choice = MainMenu();
                 while (Choice != 0)
                 {
-                    string? str;
+                    string str;
                     int i;
                     switch (Choice)
                     {

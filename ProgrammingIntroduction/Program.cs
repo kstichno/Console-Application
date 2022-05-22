@@ -15,6 +15,7 @@
                     switch (Choice)
                     {
                         case 1:
+                            int[] targets = GetNumArray();
                             Console.Write("Pick a number:  ");
                             str = Console.ReadLine();
 
@@ -23,7 +24,6 @@
                                 Console.WriteLine("Error in input [" + str + "]. Not a number");
                                 break;
                             }
-                            int[] targets = { 5, 6, 6, 9, 9, 12 };
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
@@ -39,7 +39,7 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 3:
-                            int[] arr = { 1, 1, 1, 2, 2, 2, 3 };
+                            int[] arr = GetNumArray();
                             int sum = MinSum(arr);
                             Console.Write("Answer:  " + sum.ToString());
                             break;
@@ -97,7 +97,7 @@
             }
         }
 
-        private static string StringReverse(String str)
+        private static string StringReverse(string str)
         {
             try 
             {
@@ -162,7 +162,7 @@
                 Console.WriteLine(Environment.NewLine + Environment.NewLine + "Assignment 1 - Main Menu -");
                 Console.WriteLine("1) Find the initial and final index of a given target point's value");
                 Console.WriteLine("2) Reverse the order of characters in each word within a sentence");
-                Console.WriteLine("3) Make the array elements distinct by increasing each value as needed");
+                Console.WriteLine("3) Make the array elements distinct by increasing each value as needed, then sum");
                 Console.WriteLine("4) Sort the string in decreasing order of frequency of occurrence ");
                 Console.WriteLine("5) Given two arrays, write a function to compute their intersection");
                 Console.WriteLine("6) Find out whether there are two distinct indices less than a given distance");
@@ -184,6 +184,35 @@
             {
                 Console.WriteLine(ex.Message);
                 return 0;
+            }
+        }
+
+        private static int[] GetNumArray()
+        {
+            try
+            {
+                Console.Write("Input an array of numbers as 'n,n,n,n,n...': ");
+                string? str = Console.ReadLine();
+                if (str == null)
+                {
+                    throw new Exception("Error in input [" + str + "]. String is null"); 
+                }
+                string[] nums = str.Split(',');
+                int[] arr = new int[nums.Length];
+                int i = 0;
+                foreach(string num in nums)
+                {
+                    if (!int.TryParse(num, out arr[i]))
+                    {
+                        throw new Exception("Error in input [" + num + "]. Not a number");
+                    }
+                    i++;
+                }
+                return arr;
+            }
+            catch
+            {
+                throw;
             }
         }
     }

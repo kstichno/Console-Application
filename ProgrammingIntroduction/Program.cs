@@ -57,6 +57,24 @@
                         case 5:
                             break;
                         case 6:
+                            Console.Write("Input chars to add to array as 'ccccc...':  ");
+                            str = Console.ReadLine();
+                            if (str == null)
+                            {
+                                Console.WriteLine("Error in input [" + str + "]. String is null");
+                                break;
+                            }
+                            string s = str;
+                            Console.Write("Pick a number:  ");
+                            str = Console.ReadLine();
+
+                            if (!int.TryParse(str, out i))
+                            {
+                                Console.WriteLine("Error in input [" + str + "]. Not a number");
+                                break;
+                            }
+                            bool b = ContainsDuplicate(s, i);
+                            Console.Write("Answer:  " + b.ToString());
                             break;
                     }
                     Choice = MainMenu();
@@ -192,6 +210,37 @@
             catch
             {
                 return s;
+            }
+        }
+
+        private static bool ContainsDuplicate(string s, int k)
+        {
+            try
+            {
+                Dictionary<int, char> dict = new Dictionary<int, char>();
+                int i = 0;
+                foreach (char c in s)
+                {
+                    dict.Add(i, c);
+                    i++;
+                }
+                var lookup = dict.ToLookup(x => x.Value, x => x.Key).Where(x => x.Count() > 1);
+                foreach (var item in lookup)
+                {
+                    for (int j = 0; j < item.Max(); j++)
+                    {
+                        int sum = item.ElementAt(j + 1) - item.ElementAt(j);
+                        if (sum <= k)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
             }
         }
 

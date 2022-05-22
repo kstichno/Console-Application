@@ -44,6 +44,15 @@
                             Console.Write("Answer:  " + sum.ToString());
                             break;
                         case 4:
+                            Console.Write("Input a phrase to reorder:  ");
+                            str = Console.ReadLine();
+                            if (str == null)
+                            {
+                                Console.WriteLine("Error in input [" + str + "]. String is null");
+                                break;
+                            }
+                            str = FreqSort(str);
+                            Console.Write("Answer:  " + str);
                             break;
                         case 5:
                             break;
@@ -152,6 +161,37 @@
             catch
             {
                 return 0;
+            }
+        }
+
+        private static string FreqSort(string s)
+        {
+            try
+            {
+                Dictionary<char, int> dict = new Dictionary<char, int>();
+                foreach (char c in s)
+                {
+                    int ct = 0;
+                    if (dict.ContainsKey(c))
+                    {
+                        ct = dict[c];
+                    }
+                    dict[c] = ct + 1;
+                }
+                var sorted = from entry in dict orderby entry.Value descending select entry;
+                string str = string.Empty;
+                foreach(KeyValuePair<char, int> pair in sorted)
+                {
+                    for (int i = 0; i < pair.Value; i++)
+                    {
+                        str += pair.Key;
+                    }
+                }
+                return str;   
+            }
+            catch
+            {
+                return s;
             }
         }
 

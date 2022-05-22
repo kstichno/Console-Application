@@ -15,8 +15,8 @@
                     switch (Choice)
                     {
                         case 1:
-                            int[] targets = GetNumArray();
-                            i = GetNum();
+                            int[] targets = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
+                            i = GetNum("Pick a number:  ");
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
@@ -26,7 +26,7 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 3:
-                            int[] arr = GetNumArray();
+                            int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int sum = MinSum(arr);
                             Console.Write("Answer:  " + sum.ToString());
                             break;
@@ -36,14 +36,14 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 5:
-                            int[] arrA = GetNumArray();
-                            int[] arrB = GetNumArray();
+                            int[] arrA = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
+                            int[] arrB = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] intercepts = Intersect(arrA, arrB);
                             Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
                             break;
                         case 6:
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
-                            i = GetNum();
+                            i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);
                             Console.Write("Answer:  " + b.ToString());
                             break;
@@ -275,11 +275,11 @@
             }
         }
 
-        private static int GetNum()
+        private static int GetNum(string s)
         {
             try
             {
-                Console.Write("Pick a number:  ");
+                Console.Write(s);
                 string? str = Console.ReadLine();
 
                 if (!int.TryParse(str, out int i))
@@ -312,11 +312,11 @@
             }
         }
 
-        private static int[] GetNumArray()
+        private static int[] GetNumArray(string s)
         {
             try
             {
-                Console.Write("Input an array of numbers as 'n,n,n,n,n...': ");
+                Console.Write(s);
                 string? str = Console.ReadLine();
                 if (str == null)
                 {

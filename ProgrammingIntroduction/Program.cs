@@ -153,7 +153,7 @@
                 } 
                 while (j < str.Length);
 
-                revStr = revStr.Trim();
+                revStr = revStr.TrimEnd();
                 return revStr; 
             }
             catch 

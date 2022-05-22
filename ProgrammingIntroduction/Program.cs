@@ -55,6 +55,11 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 5:
+                            int[] arrA = GetNumArray();
+                            int[] arrB = GetNumArray();
+                            int[] intercepts = Intersect(arrA, arrB);
+                            Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
+
                             break;
                         case 6:
                             Console.Write("Input chars to add to array as 'ccccc...':  ");
@@ -212,6 +217,34 @@
                 return s;
             }
         }
+
+        private static int[] Intersect(int[] arrA, int[] arrB)
+        {
+            try
+            {
+                int [] result = new int[2];
+                var intersect = arrA.Intersect(arrB);
+                if (intersect.Count() > 0)
+                {
+                    result[0] = intersect.ElementAt(0);
+                }
+                
+                if (intersect.Count() > 1)
+                {
+                    result[1] = intersect.ElementAt(1);
+                }
+                else
+                {
+                    result[1] = intersect.ElementAt(0);
+                }
+                return result;
+            }
+            catch
+            {
+                throw new Exception("No Intersect Point");
+            }
+        }
+
 
         private static bool ContainsDuplicate(string s, int k)
         {

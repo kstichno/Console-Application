@@ -2,7 +2,15 @@
 {
     internal class Program
     {
+        /// <summary>
+        /// global integer representing responce from main menu input.
+        /// </summary>
         static int Choice = -1;
+
+        /// <summary>
+        /// Main method and entry point to the program. Main from of interaction with the console interface.
+        /// </summary>
+        /// <param name="args">aguments passed with the executable. Currently not handled.</param>
         static void Main(string[] args)
         {
             try
@@ -14,34 +22,34 @@
                     int i;
                     switch (Choice)
                     {
-                        case 1:
+                        case 1:  // Problem #1. Find the initial and final index of a given target point’s value.
                             int[] targets = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             i = GetNum("Pick a number:  ");
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
-                        case 2:
+                        case 2: // Problem #2. Reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. 
                             str = GetStr("Input a phrase to reorder:  ");
                             str = StringReverse(str);
                             Console.Write("Answer:  " + str);
                             break;
-                        case 3:
+                        case 3: // Problem #3. Make the array elements distinct by increasing each value as needed, while minimizing and returning the array sum.
                             int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int sum = MinSum(arr);
                             Console.Write("Answer:  " + sum.ToString());
                             break;
-                        case 4:
+                        case 4: // Problem #4. Sort the given string in decreasing order of frequency of occurrence of each character
                             str = GetStr("Input a phrase to reorder:  ");
                             str = FreqSort(str);
                             Console.Write("Answer:  " + str);
                             break;
-                        case 5:
+                        case 5: // Problem #5. Given two arrays, write a function to compute their intersection.
                             int[] arrA = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] arrB = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] intercepts = Intersect(arrA, arrB);
                             Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
                             break;
-                        case 6:
+                        case 6: // Problem #6. Find out whether there are two distinct indices less than a given distance.
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
                             i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);
@@ -56,6 +64,13 @@
                 Console.WriteLine(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Method to find the initial and final index of a given target point’s value within an array.
+        /// </summary>
+        /// <param name="marks">array of integers</param>
+        /// <param name="target">interger if interest within an array</param>
+        /// <returns>integer array of first and last index for a given target point's value within an array</returns>
         private static int[] TargetRange(int[] marks, int target)
         {
             try
@@ -95,6 +110,11 @@
             }
         }
 
+        /// <summary>
+        /// Method to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+        /// </summary>
+        /// <param name="str">string to reverse</param>
+        /// <returns>reversed string</returns>
         private static string StringReverse(string str)
         {
             try 
@@ -128,6 +148,11 @@
             }
         }
 
+        /// <summary>
+        /// Method to make array elements distinct by increasing each value as needed, while minimizing and returning the array sum.
+        /// </summary>
+        /// <param name="arr">array to maninpulate and make values distinct</param>
+        /// <returns>sum of new array</returns>
         private static int MinSum(int[] arr)
         {
             try
@@ -153,6 +178,11 @@
             }
         }
 
+        /// <summary>
+        /// Method to sort letters in an string in decreasing order of frequency of occurrence of each character
+        /// </summary>
+        /// <param name="s">string to sort</param>
+        /// <returns>sorted string</returns>
         private static string FreqSort(string s)
         {
             try
@@ -184,6 +214,13 @@
             }
         }
 
+        /// <summary>
+        /// Method to find intersection of two arrays.
+        /// </summary>
+        /// <param name="arrA">Array One</param>
+        /// <param name="arrB">Array Two</param>
+        /// <returns>Array with Interept</returns>
+        /// <exception cref="Exception">Exception thrown if array's do not intercept.</exception>
         private static int[] Intersect(int[] arrA, int[] arrB)
         {
             try
@@ -211,7 +248,12 @@
             }
         }
 
-
+        /// <summary>
+        /// Method to determine if there are two distinct indices in a given string seperated by less than a given distance.
+        /// </summary>
+        /// <param name="s">input string</param>
+        /// <param name="k">comparison distance</param>
+        /// <returns>boolean response if conparison condition was satisfied.</returns>
         private static bool ContainsDuplicate(string s, int k)
         {
             try
@@ -243,6 +285,10 @@
             }
         }
 
+        /// <summary>
+        /// Main Menu. Queries input for which method to run.
+        /// </summary>
+        /// <returns>Interger representation of which case to exectute from the main menu.</returns>
         private static int MainMenu()
         {
             try
@@ -275,6 +321,11 @@
             }
         }
 
+        /// <summary>
+        /// Method quering console to input an integer number
+        /// </summary>
+        /// <param name="s">String to display on console.</param>
+        /// <returns>integer from input.</returns>
         private static int GetNum(string s)
         {
             try
@@ -294,6 +345,11 @@
             }
         }
 
+        /// <summary>
+        /// Method quering console to input a word or phrase
+        /// </summary>
+        /// <param name="s">String to display on console.</param>
+        /// <returns>string from input.</returns>
         private static string GetStr(string s)
         {
             try
@@ -312,6 +368,11 @@
             }
         }
 
+        /// <summary>
+        /// Method quering console to input number array in coma delimited format
+        /// </summary>
+        /// <param name="s">String to display on console.</param>
+        /// <returns>int array from input.</returns>
         private static int[] GetNumArray(string s)
         {
             try

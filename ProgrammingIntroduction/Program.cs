@@ -3,12 +3,12 @@
     internal class Program
     {
         /// <summary>
-        /// global integer representing responce from main menu input.
+        /// global integer representing response from main menu input.
         /// </summary>
         static int Choice = -1;
 
         /// <summary>
-        /// Main method and entry point to the program. Main from of interaction with the console interface.
+        /// Main method and entry point to the program. Main form of interaction with the console interface.
         /// </summary>
         /// <param name="args">aguments passed with the executable. Currently not handled.</param>
         static void Main(string[] args)

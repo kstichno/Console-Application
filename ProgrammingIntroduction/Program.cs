@@ -13,6 +13,7 @@
         /// <param name="args">aguments passed with the executable. Currently not handled.</param>
         static void Main(string[] args)
         {
+        // The Try and Catch block allow to run the program on trial, so if all goes well the catch block is ignored and the progrma continues BAU    
             try
             {
                 Choice = MainMenu();
@@ -22,12 +23,21 @@
                     int i;
                     switch (Choice)
                     {
+                        //The first line request and store the numbers in an array. 
+                        //The second line request the number to return the index from the array
+                        //TargetRange looks for the index of i in the targets array and writes it down in the console
+                        //if the number in 'i' is not in the array, it will return [-1, -1}, if 'i' is only once in the array the index or position will be reported twice
+                        //if the 'i' is twice it will result in the two indexes or positions. if 'i' is more than twice, the program will report the first and last index 
+                        //where 'i' is found
                         case 1:  // Problem #1. Find the initial and final index of a given target point’s value.
                             int[] targets = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             i = GetNum("Pick a number:  ");
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
+                        //The first line is a request of a string or characters 
+                       //Second line call reverse the order of each of the characters of the string which is call down below
+                       //then the answer is wrote in the console. the break command returns the user to the MainMenu()
                         case 2: // Problem #2. Reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. 
                             str = GetStr("Input a phrase to reorder:  ");
                             str = StringReverse(str);
@@ -59,6 +69,7 @@
                     Choice = MainMenu();
                 }
             }
+            //the Catch block is only call if the program in the try block is not ok so it allows to display an error to the user on the screen
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -71,6 +82,11 @@
         /// <param name="marks">array of integers</param>
         /// <param name="target">interger if interest within an array</param>
         /// <returns>integer array of first and last index for a given target point's value within an array</returns>
+        ///This is the code called in case 1
+        ///In this try block we have two for loop blocks, the first one calculate the first index to display as an answer
+        ///The second for loop block is for the second index to display as part of the answer
+        /// first loop start with a value of zero and will run while the value is less than the lenght of the array  and will increase by one for the next run
+        ///the second look starts with a value of the lenght minus one and will run as long the value is bigger or equal than zero and will decrease by one until zero
         private static int[] TargetRange(int[] marks, int target)
         {
             try
@@ -103,6 +119,7 @@
                 }
                 return indexes;
             }
+           ///if the target value is in the conditions that met the above for lopps, then the default error message is the index are -1,-1 and that value is added to indexes
             catch
             {
                 int[] indexes = {-1, -1};
@@ -115,6 +132,12 @@
         /// </summary>
         /// <param name="str">string to reverse</param>
         /// <returns>reversed string</returns>
+        /// This is the program call by case 2, starts with the try and catch blocks and inside has a Do While loop, where execute first the code and then check if the condition is met.
+        /// starts by defining two variables with value zero and minus one, defines also the variable revStre as a string and ensure it is empty
+        /// then assigns to j the lenght of the string identifying de posion or index in the string or phrase per each spaces and charaters and asigned it to a temporary string
+        /// where using a for loop does this per each character but by using -1 is being written in the oposite direction  and runs until the position or index of the character is zero,
+        /// by decreasing by one the index. then assings the temporary string characters to the revString. it ends iwth a while loop once the Reverse String where it trimes any space at
+        /// the end of the reverse string to display ony characters at the end of the new reverse string 
         private static string StringReverse(string str)
         {
             try 

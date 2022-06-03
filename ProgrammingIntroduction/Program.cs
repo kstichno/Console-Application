@@ -44,14 +44,14 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 3: // Problem #3. Make the array elements distinct by increasing each value as needed, while minimizing and returning the array sum.
-                            int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
-                            int sum = MinSum(arr);
-                            Console.Write("Answer:  " + sum.ToString());
+                            int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': "); //calls on user to type in an array
+                            int sum = MinSum(arr); // calls on a function below that takes the array, ensures that the array does not contain duplicate numbers to the minimum degree, then sums the integers (i.e. 2,2,3 turns into 2,3,4 and sums to 9).
+                            Console.Write("Answer:  " + sum.ToString()); //displays the sum of array in string
                             break;
                         case 4: // Problem #4. Sort the given string in decreasing order of frequency of occurrence of each character
-                            str = GetStr("Input a phrase to reorder:  ");
-                            str = FreqSort(str);
-                            Console.Write("Answer:  " + str);
+                            str = GetStr("Input a phrase to reorder:  "); //calls on user input
+                            str = FreqSort(str);//calls on a stored procedure below that takes a string and finds frequency of characters and sorts in decreasing order
+                            Console.Write("Answer:  " + str); //outputs newly formed string with higher frequency characters first, followed by Z to A sort (i.e. AABBBC would be arranged as BBBAAC)
                             break;
                         case 5: // Problem #5. Given two arrays, write a function to compute their intersection.
                             // The first line request and store numbers in the first array.
@@ -65,7 +65,7 @@
                         case 6: // Problem #6. Find out whether there are two distinct indices less than a given distance.
                             //The first line request and store string value
                             //The second line request and store number value
-                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console (RD)
+                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console 
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
                             i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);

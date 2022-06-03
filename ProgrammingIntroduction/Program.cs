@@ -54,12 +54,18 @@
                             Console.Write("Answer:  " + str);
                             break;
                         case 5: // Problem #5. Given two arrays, write a function to compute their intersection.
+                            // The first line request and store numbers in the first array.
+                            //The second line request and store numbers in the second array
+                            //Intersect function finds intersection of two sequences and writes it down in the console 
                             int[] arrA = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] arrB = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] intercepts = Intersect(arrA, arrB);
                             Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
                             break;
                         case 6: // Problem #6. Find out whether there are two distinct indices less than a given distance.
+                            //The first line request and store string value
+                            //The second line request and store number value
+                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console 
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
                             i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);

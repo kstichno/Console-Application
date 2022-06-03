@@ -182,6 +182,9 @@
         /// </summary>
         /// <param name="arr">array to maninpulate and make values distinct</param>
         /// <returns>sum of new array</returns>
+        /// To make unique each number of the array, two for loops were used, one inside the other.  The first one inside check if the numbers are repeated, then it 
+        /// increases the number by one, if not the outer for goes to the next character until read all numbers in the array. Everytime it checks the next character it added 
+        /// to the sum variable 
         private static int MinSum(int[] arr)
         {
             try
@@ -432,3 +435,17 @@
         }
     }
 }
+
+
+/// Group Reflection
+/// During this assignment, the team had to navigate the six problems and develop methods to solve each unique problem with the desired output. 
+/// You can see from the github code and the picture of outcomes that we met the desired outcomes and thought through the problems. It was not enough 
+/// to simply get the desire outcome, but had to work to design the logic of the code to run through loops to systematically reach the desired endstate. 
+/// As you can see, we developed several stored procedures to run the complex calculations/loops that enabled us to cleanly display our six cases of code. 
+/// We worked together to ensure we added comments to explain logic, and we learned a great deal from working with the varying degrees of talent and experience 
+/// on our team.  
+/// For the assignment next year, we can only offer that there should be more clarification on problem #5, as we struggled to understand the exact nature 
+/// of the intersection. This could be a little more clear. But all in all, this was a great first assignment to get our feet under us. 
+
+
+

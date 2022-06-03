@@ -23,49 +23,53 @@
                     int i;
                     switch (Choice)
                     {
-                        //The first line request and store the numbers in an array. 
-                        //The second line request the number to return the index from the array
-                        //TargetRange looks for the index of i in the targets array and writes it down in the console
-                        //if the number in 'i' is not in the array, it will return [-1, -1}, if 'i' is only once in the array the index or position will be reported twice
-                        //if the 'i' is twice it will result in the two indexes or positions. if 'i' is more than twice, the program will report the first and last index 
-                        //where 'i' is found
+                        // The first line request and store the numbers in an array. 
+                        // The second line request the number to return the index from the array
+                        // TargetRange looks for the index of i in the targets array and writes it down in the console
+                        // if the number in 'i' is not in the array, it will return [-1, -1}, if 'i' is only once in the array the index or position will be reported twice
+                        // if the 'i' is twice it will result in the two indexes or positions. if 'i' is more than twice, the program will report the first and last index 
+                        // where 'i' is found
+
                         case 1:  // Problem #1. Find the initial and final index of a given target point’s value.
                             int[] targets = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             i = GetNum("Pick a number:  ");
                             int[] indexes = TargetRange(targets, i);
                             Console.Write("Answer:  [" + indexes[0] + "," + indexes[1] + "]");
                             break;
-                        //The first line is a request of a string or characters 
-                       //Second line call reverse the order of each of the characters of the string which is call down below
-                       //then the answer is wrote in the console. the break command returns the user to the MainMenu()
+                        
+                        // The first line is a request of a string or characters 
+                        // Second line call reverse the order of each of the characters of the string which is call down below
+                        // then the answer is wrote in the console. the break command returns the user to the MainMenu()
+                        
                         case 2: // Problem #2. Reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. 
                             str = GetStr("Input a phrase to reorder:  ");
                             str = StringReverse(str);
                             Console.Write("Answer:  " + str);
                             break;
                         case 3: // Problem #3. Make the array elements distinct by increasing each value as needed, while minimizing and returning the array sum.
-                            int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': "); //calls on user to type in an array
+                            int[] arr = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': "); // calls on user to type in an array
                             int sum = MinSum(arr); // calls on a function below that takes the array, ensures that the array does not contain duplicate numbers to the minimum degree, then sums the integers (i.e. 2,2,3 turns into 2,3,4 and sums to 9).
-                            Console.Write("Answer:  " + sum.ToString()); //displays the sum of array in string
+                            Console.Write("Answer:  " + sum.ToString()); // displays the sum of array in string
                             break;
                         case 4: // Problem #4. Sort the given string in decreasing order of frequency of occurrence of each character
-                            str = GetStr("Input a phrase to reorder:  "); //calls on user input
-                            str = FreqSort(str);//calls on a stored procedure below that takes a string and finds frequency of characters and sorts in decreasing order
-                            Console.Write("Answer:  " + str); //outputs newly formed string with higher frequency characters first, followed by Z to A sort (i.e. AABBBC would be arranged as BBBAAC)
+                            str = GetStr("Input a phrase to reorder:  "); // calls on user input
+                            str = FreqSort(str); // calls on a stored procedure below that takes a string and finds frequency of characters and sorts in decreasing order
+                            Console.Write("Answer:  " + str); // outputs newly formed string with higher frequency characters first, followed by Z to A sort (i.e. AABBBC would be arranged as BBBAAC)
                             break;
                         case 5: // Problem #5. Given two arrays, write a function to compute their intersection.
                             // The first line request and store numbers in the first array.
-                            //The second line request and store numbers in the second array
-                            //Intersect function finds intersection of two sequences and writes it down in the console 
+                            // The second line request and store numbers in the second array
+                            // Intersect function finds intersection of two sequences and writes it down in the console 
+                            
                             int[] arrA = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] arrB = GetNumArray("Input an array of numbers as 'n,n,n,n,n...': ");
                             int[] intercepts = Intersect(arrA, arrB);
                             Console.Write("Answer:  [" + intercepts[0] + "," + intercepts[1] + "]");
                             break;
                         case 6: // Problem #6. Find out whether there are two distinct indices less than a given distance.
-                            //The first line request and store string value
-                            //The second line request and store number value
-                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console 
+                            // The first line request and store string value
+                            // The second line request and store number value
+                            // ContainsDuplicate checks for duplicate values and outputs True or False in the console 
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
                             i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);
@@ -75,7 +79,7 @@
                     Choice = MainMenu();
                 }
             }
-            //the Catch block is only call if the program in the try block is not ok so it allows to display an error to the user on the screen
+            // the Catch block is only call if the program in the try block is not ok so it allows to display an error to the user on the screen
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -88,11 +92,12 @@
         /// <param name="marks">array of integers</param>
         /// <param name="target">interger if interest within an array</param>
         /// <returns>integer array of first and last index for a given target point's value within an array</returns>
-        ///This is the code called in case 1
-        ///In this try block we have two for loop blocks, the first one calculate the first index to display as an answer
-        ///The second for loop block is for the second index to display as part of the answer
-        /// first loop start with a value of zero and will run while the value is less than the lenght of the array  and will increase by one for the next run
-        ///the second look starts with a value of the lenght minus one and will run as long the value is bigger or equal than zero and will decrease by one until zero
+        
+        // This is the code called in case 1
+        // In this try block we have two for loop blocks, the first one calculate the first index to display as an answer
+        // The second for loop block is for the second index to display as part of the answer
+        // first loop start with a value of zero and will run while the value is less than the lenght of the array  and will increase by one for the next run
+        // the second look starts with a value of the lenght minus one and will run as long the value is bigger or equal than zero and will decrease by one until zero
         private static int[] TargetRange(int[] marks, int target)
         {
             try
@@ -125,7 +130,7 @@
                 }
                 return indexes;
             }
-           ///if the target value is in the conditions that met the above for lopps, then the default error message is the index are -1,-1 and that value is added to indexes
+           // if the target value is in the conditions that met the above for lopps, then the default error message is the index are -1,-1 and that value is added to indexes
             catch
             {
                 int[] indexes = {-1, -1};
@@ -138,12 +143,13 @@
         /// </summary>
         /// <param name="str">string to reverse</param>
         /// <returns>reversed string</returns>
-        /// This is the program call by case 2, starts with the try and catch blocks and inside has a Do While loop, where execute first the code and then check if the condition is met.
-        /// starts by defining two variables with value zero and minus one, defines also the variable revStre as a string and ensure it is empty
-        /// then assigns to j the lenght of the string identifying de posion or index in the string or phrase per each spaces and charaters and asigned it to a temporary string
-        /// where using a for loop does this per each character but by using -1 is being written in the oposite direction  and runs until the position or index of the character is zero,
-        /// by decreasing by one the index. then assings the temporary string characters to the revString. it ends iwth a while loop once the Reverse String where it trimes any space at
-        /// the end of the reverse string to display ony characters at the end of the new reverse string 
+        
+        // This is the program call by case 2, starts with the try and catch blocks and inside has a Do While loop, where execute first the code and then check if the condition is met.
+        // starts by defining two variables with value zero and minus one, defines also the variable revStre as a string and ensure it is empty
+        // then assigns to j the lenght of the string identifying de posion or index in the string or phrase per each spaces and charaters and asigned it to a temporary string
+        // where using a for loop does this per each character but by using -1 is being written in the oposite direction  and runs until the position or index of the character is zero,
+        // by decreasing by one the index. then assings the temporary string characters to the revString. it ends iwth a while loop once the Reverse String where it trimes any space at
+        // the end of the reverse string to display ony characters at the end of the new reverse string 
         private static string StringReverse(string str)
         {
             try 
@@ -182,9 +188,10 @@
         /// </summary>
         /// <param name="arr">array to maninpulate and make values distinct</param>
         /// <returns>sum of new array</returns>
-        /// To make unique each number of the array, two for loops were used, one inside the other.  The first one inside check if the numbers are repeated, then it 
-        /// increases the number by one, if not the outer for goes to the next character until read all numbers in the array. Everytime it checks the next character it added 
-        /// to the sum variable 
+        
+        // To make unique each number of the array, two for loops were used, one inside the other.  The first one inside check if the numbers are repeated, then it 
+        // increases the number by one, if not the outer for goes to the next character until read all numbers in the array. Everytime it checks the next character it added 
+        // to the sum variable 
         private static int MinSum(int[] arr)
         {
             try
@@ -437,15 +444,16 @@
 }
 
 
-/// Group Reflection
-/// During this assignment, the team had to navigate the six problems and develop methods to solve each unique problem with the desired output. 
-/// You can see from the github code and the picture of outcomes that we met the desired outcomes and thought through the problems. It was not enough 
-/// to simply get the desire outcome, but had to work to design the logic of the code to run through loops to systematically reach the desired endstate. 
-/// As you can see, we developed several stored procedures to run the complex calculations/loops that enabled us to cleanly display our six cases of code. 
-/// We worked together to ensure we added comments to explain logic, and we learned a great deal from working with the varying degrees of talent and experience 
-/// on our team.  
-/// For the assignment next year, we can only offer that there should be more clarification on problem #5, as we struggled to understand the exact nature 
-/// of the intersection. This could be a little more clear. But all in all, this was a great first assignment to get our feet under us. 
-
+/* 
+ * Group Reflection
+ * During this assignment, the team had to navigate the six problems and develop methods to solve each unique problem with the desired output. 
+ * You can see from the github code and the picture of outcomes that we met the desired outcomes and thought through the problems. It was not enough 
+ * to simply get the desire outcome, but had to work to design the logic of the code to run through loops to systematically reach the desired endstate. 
+ * As you can see, we developed several stored procedures to run the complex calculations/loops that enabled us to cleanly display our six cases of code. 
+ * We worked together to ensure we added comments to explain logic, and we learned a great deal from working with the varying degrees of talent and experience 
+ * on our team.  
+ * For the assignment next year, we can only offer that there should be more clarification on problem #5, as we struggled to understand the exact nature 
+ * of the intersection. This could be a little more clear. But all in all, this was a great first assignment to get our feet under us. 
+*/
 
 

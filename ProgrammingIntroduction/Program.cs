@@ -65,7 +65,7 @@
                         case 6: // Problem #6. Find out whether there are two distinct indices less than a given distance.
                             //The first line request and store string value
                             //The second line request and store number value
-                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console 
+                            //ContainsDuplicate checks for duplicate values and outputs True or False in the console (RD)
                             str = GetStr("Input chars to add to array as 'ccccc...':  "); 
                             i = GetNum("Pick a number:  ");
                             bool b = ContainsDuplicate(str, i);
